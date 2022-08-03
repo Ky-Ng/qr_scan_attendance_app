@@ -14,15 +14,15 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Padding(
-          padding: EdgeInsets.fromLTRB(5.0, 3.0, 0, 2.0),
-          child: CircleAvatar(
-            backgroundColor: Colors.transparent,
-            backgroundImage: AssetImage(
-              'lib/assets/LKF_logo_nowords.png',
-            ),
-          ),
-        ),
+        // leading: Padding(
+        //   padding: EdgeInsets.fromLTRB(5.0, 3.0, 0, 2.0),
+        //   child: CircleAvatar(
+        //     backgroundColor: Colors.transparent,
+        //     backgroundImage: AssetImage(
+        //       'lib/assets/LKF_logo_nowords.png',
+        //     ),
+        //   ),
+        // ),
         title: Text(
           'Scan Student',
           style: DefaultStyle.textStyle,
@@ -30,9 +30,58 @@ class _HomeState extends State<Home> {
         centerTitle: true,
         backgroundColor: DefaultStyle.darkGrey,
       ),
-      body: Center(
-        child: Text('centered'),
-      ),
+      drawer: Drawer(
+          child: ListView(
+        padding: EdgeInsets.zero,
+        children: [
+          DrawerHeader(
+            decoration: BoxDecoration(
+              color: Colors.blue,
+            ),
+            child: Text(
+              'Drawer Header',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 24,
+              ),
+            ),
+          ),
+          ListTile(
+            leading: Icon(Icons.message),
+            title: Text('Messages'),
+          ),
+          ListTile(
+            leading: Icon(Icons.account_circle),
+            title: Text('Profile'),
+          ),
+          ListTile(
+            leading: Icon(Icons.settings),
+            title: Text('Settings'),
+          ),
+        ],
+      )),
+      // body: Column(children: [
+      //   MobileScanner(
+      //       allowDuplicates: false,
+      //       onDetect: (barcode, args) {
+      //         if (barcode.rawValue == null) {
+      //           debugPrint('Failed to scan Barcode');
+      //         } else {
+      //           final String code = barcode.rawValue!;
+      //           debugPrint('Barcode found! $code');
+      //         }
+      //       }),
+      // ]));
+      // body: MobileScanner(
+      //     allowDuplicates: false,
+      //     onDetect: (barcode, args) {
+      //       if (barcode.rawValue == null) {
+      //         debugPrint('Failed to scan Barcode');
+      //       } else {
+      //         final String code = barcode.rawValue!;
+      //         debugPrint('Barcode found! $code');
+      //       }
+      //     })
     );
   }
 }
