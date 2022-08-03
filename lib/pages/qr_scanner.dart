@@ -13,6 +13,7 @@ class QrScanner extends StatefulWidget {
 class _QrScannerState extends State<QrScanner> {
   final qrKey = GlobalKey(debugLabel: 'QR');
   QRViewController? controller;
+  Barcode? returnedQrData;
 
   @override
   void dispose() {
@@ -50,7 +51,11 @@ class _QrScannerState extends State<QrScanner> {
     setState(() {
       this.controller = controller;
     });
-
-    // controller.scannedDataStream
+    controller.scannedDataStream.listen((barcode) {
+      setState(() {
+        this.returnedQrData = barcode;
+        print('found data = ${returnedQrData!.code}');
+      });
+    });
   }
 }
