@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
@@ -18,9 +20,27 @@ class _QrScannerState extends State<QrScanner> {
     super.dispose();
   }
 
+  //ensure hot reload works on android app
   @override
-  Widget build(BuildContext context) =>
-      QRView(key: qrKey, onQRViewCreated: onQRViewCreated);
+  Future<void> reassemble() async {
+    super.reassemble();
+    if (Platform.isAndroid) {
+      await controller!.pauseCamera();
+    }
+    controller!.resumeCamera();
+  }
+
+  @override
+  Widget build(BuildContext context) => QRView(
+        key: qrKey,
+        onQRViewCreated: onQRViewCreated,
+        overlay: QrScannerOverlayShape(
+          borderRadius: 10,
+          borderLength: 20,
+          borderWidth: 10,
+          cutOutSize: MediaQuery.of(context).size.width * 0.8,
+        ),
+      );
 
   // Widget buildQrView(BuildContext context) {
   //   return QRView(key: qrKey, onQRViewCreated: onQRViewCreated);
@@ -30,5 +50,7 @@ class _QrScannerState extends State<QrScanner> {
     setState(() {
       this.controller = controller;
     });
+
+    // controller.scannedDataStream
   }
 }
