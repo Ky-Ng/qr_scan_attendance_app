@@ -48,7 +48,7 @@ class NavDrawer extends StatelessWidget {
                 maxRadius: 140.0,
                 backgroundColor: Colors.transparent,
                 backgroundImage: AssetImage(
-                  'lib/assets/LKF_logo.png',
+                  'lib/assets/imgs/LKF_logo.png',
                 ),
               ),
             ),
