@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:legendkungfu/assets/default_style.dart';
 import 'package:legendkungfu/pages/navigation/nav_drawer.dart';
-import 'package:legendkungfu/pages/qr_scanner.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -24,7 +23,7 @@ class _HomeState extends State<Home> {
         backgroundColor: DefaultStyle.darkGrey,
       ),
       drawer: NavDrawer(),
-      body: QrScanner(),
+      // body: QrScanner(),
       // QrImage(
       //   data: 'foo data',
       // ),
