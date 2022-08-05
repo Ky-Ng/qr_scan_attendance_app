@@ -17,11 +17,7 @@ class _StudentCardState extends State<StudentCard> {
 
   @override
   void initState() {
-    for (int i = 0; i < StudentData.studentList.length; i++) {
-      if (StudentData.studentList[i].uid == StudentData.currentUID) {
-        studentIndex = i;
-      }
-    }
+    studentIndex = StudentData.getIndexFromCurrentUID();
     print('re init state');
     super.initState();
   }

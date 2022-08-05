@@ -34,6 +34,14 @@ class StudentData {
   // set setUID(String s) {
   //   currentUID = s;
   // }
+  static int getIndexFromCurrentUID() {
+    for (int i = 0; i < StudentData.studentList.length; i++) {
+      if (StudentData.studentList[i].uid == StudentData.currentUID) {
+        return i;
+      }
+    }
+    return -1;
+  }
 }
 
 class Student {

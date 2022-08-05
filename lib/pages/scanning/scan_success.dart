@@ -29,7 +29,9 @@ class _ScanStatusState extends State<ScanStatus> {
                     flex: 1,
                     child: Center(
                       child: Text(
-                        StudentData.currentUID,
+                        StudentData
+                            .studentList[StudentData.getIndexFromCurrentUID()]
+                            .name,
                         style: TextStyle(fontSize: 30),
                       ),
                     )),
