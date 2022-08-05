@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:legendkungfu/assets/default_style.dart';
+import 'package:legendkungfu/pages/scanning/scan_helper.dart';
 import 'package:legendkungfu/pages/student/student_data.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
@@ -56,17 +57,24 @@ class _QrScannerState extends State<QrScanner> {
   //   return QRView(key: qrKey, onQRViewCreated: onQRViewCreated);
   // }
 
+  // void set justScanned(bool status) {
+  //   justScanSuccess = status;
+  // }
+
   void onQRViewCreated(QRViewController controller) {
     setState(() {
       this.controller = controller;
     });
     controller.scannedDataStream.listen((barcode) {
-      setState(() async {
-        this.returnedQrData = barcode;
-        print('found data = ${returnedQrData!.code}');
-        StudentData.currentUID = returnedQrData!.code!;
-        await Navigator.pushNamed(context, '/scannedIn');
-      });
+      if (!ScanHelper.justScanSuccess) {
+        setState(() {
+          this.returnedQrData = barcode;
+          print('found data = ${returnedQrData!.code}');
+          StudentData.currentUID = returnedQrData!.code!;
+          Navigator.pushReplacementNamed(context, '/scannedIn');
+          ScanHelper.justScanSuccess = true;
+        });
+      }
     });
   }
 }

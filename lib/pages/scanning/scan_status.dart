@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:legendkungfu/assets/default_style.dart';
+import 'package:legendkungfu/pages/scanning/scan_helper.dart';
 
 import '../student/student_data.dart';
 
@@ -49,6 +50,7 @@ class _ScanStatusState extends State<ScanStatus> {
                       child: TextButton(
                         onPressed: () {
                           print('finished button pressed');
+                          ScanHelper.justScanSuccess = false;
                           Navigator.pushReplacementNamed(context, '/');
                         },
                         style: ButtonStyle(
