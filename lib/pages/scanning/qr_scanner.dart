@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
+import 'package:legendkungfu/assets/default_style.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 class QrScanner extends StatefulWidget {
@@ -14,6 +15,7 @@ class _QrScannerState extends State<QrScanner> {
   final qrKey = GlobalKey(debugLabel: 'QR');
   QRViewController? controller;
   Barcode? returnedQrData;
+  bool isValidQr = false;
 
   @override
   void dispose() {
@@ -32,16 +34,22 @@ class _QrScannerState extends State<QrScanner> {
   }
 
   @override
-  Widget build(BuildContext context) => QRView(
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: QRView(
         key: qrKey,
         onQRViewCreated: onQRViewCreated,
         overlay: QrScannerOverlayShape(
+          borderColor:
+              this.isValidQr ? DefaultStyle.greenGo : DefaultStyle.redStop,
           borderRadius: 10,
-          borderLength: 20,
+          borderLength: 50,
           borderWidth: 10,
           cutOutSize: MediaQuery.of(context).size.width * 0.8,
         ),
-      );
+      ),
+    );
+  }
 
   // Widget buildQrView(BuildContext context) {
   //   return QRView(key: qrKey, onQRViewCreated: onQRViewCreated);
