@@ -61,11 +61,11 @@ class _QrScannerState extends State<QrScanner> {
       this.controller = controller;
     });
     controller.scannedDataStream.listen((barcode) {
-      setState(() {
+      setState(() async {
         this.returnedQrData = barcode;
         print('found data = ${returnedQrData!.code}');
         StudentData.currentUID = returnedQrData!.code!;
-        Navigator.pushReplacementNamed(context, '/scannedIn');
+        await Navigator.pushNamed(context, '/scannedIn');
       });
     });
   }

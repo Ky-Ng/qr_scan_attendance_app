@@ -49,6 +49,7 @@ class _ScanStatusState extends State<ScanStatus> {
                       child: TextButton(
                         onPressed: () {
                           print('finished button pressed');
+                          Navigator.pushReplacementNamed(context, '/');
                         },
                         style: ButtonStyle(
                           shape:
