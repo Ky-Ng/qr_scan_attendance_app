@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:legendkungfu/assets/default_style.dart';
+import 'package:legendkungfu/pages/student/student_data.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 class QrScanner extends StatefulWidget {
@@ -63,6 +64,8 @@ class _QrScannerState extends State<QrScanner> {
       setState(() {
         this.returnedQrData = barcode;
         print('found data = ${returnedQrData!.code}');
+        StudentData.currentUID = returnedQrData!.code!;
+        Navigator.pushReplacementNamed(context, '/scannedIn');
       });
     });
   }

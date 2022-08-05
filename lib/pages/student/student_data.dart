@@ -1,4 +1,5 @@
 class StudentData {
+  static String currentUID = 'none';
   static List<Student> studentList = [
     Student(
         name: 'Alicia Li',
@@ -29,6 +30,10 @@ class StudentData {
         email: 'lkf@lkf.com',
         uid: 'ZhouQin123111'),
   ];
+
+  // set setUID(String s) {
+  //   currentUID = s;
+  // }
 }
 
 class Student {

@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:legendkungfu/assets/default_style.dart';
 
+import '../student/student_data.dart';
+
 class ScanStatus extends StatefulWidget {
   const ScanStatus({Key? key}) : super(key: key);
 
@@ -26,7 +28,7 @@ class _ScanStatusState extends State<ScanStatus> {
                     flex: 1,
                     child: Center(
                       child: Text(
-                        placeHolderStudent,
+                        StudentData.currentUID,
                         style: TextStyle(fontSize: 30),
                       ),
                     )),
@@ -59,7 +61,7 @@ class _ScanStatusState extends State<ScanStatus> {
                               MaterialStateProperty.all(Colors.green[400]),
                         ),
                         child: Text(
-                          'Check In',
+                          'Done',
                           style: TextStyle(
                             fontSize: 25,
                             color: Colors.grey[800],
