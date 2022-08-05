@@ -4,7 +4,6 @@ import 'package:legendkungfu/pages/student/student_data.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 import '../../assets/default_style.dart';
-import '../navigation/nav_drawer.dart';
 
 class StudentCard extends StatefulWidget {
   const StudentCard({Key? key}) : super(key: key);
@@ -14,13 +13,12 @@ class StudentCard extends StatefulWidget {
 }
 
 class _StudentCardState extends State<StudentCard> {
-  String studentUID = 'b';
   int studentIndex = 0;
 
   @override
   void initState() {
     for (int i = 0; i < StudentData.studentList.length; i++) {
-      if (StudentData.studentList[i].uid == studentUID) {
+      if (StudentData.studentList[i].uid == StudentData.currentUID) {
         studentIndex = i;
       }
     }
@@ -32,14 +30,16 @@ class _StudentCardState extends State<StudentCard> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Student Info',
-          style: DefaultStyle.textStyle,
-        ),
-        centerTitle: true,
-        backgroundColor: DefaultStyle.darkGrey,
-      ),
-      drawer: NavDrawer(),
+          title: Text(
+            'Student Info',
+            style: DefaultStyle.textStyle,
+          ),
+          centerTitle: true,
+          backgroundColor: DefaultStyle.darkGrey,
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back, color: Colors.grey[200]),
+            onPressed: () => Navigator.of(context).pop(),
+          )),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
         child: Card(

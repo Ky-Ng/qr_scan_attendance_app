@@ -10,7 +10,7 @@ class StudentData {
         uid: 'AliciaLi1234'),
     Student(
         name: 'Alex Li',
-        classes: 5,
+        classes: -1,
         date: '08/12/2022',
         phone: '5107706008',
         email: 'lkf@lkf.com',
@@ -18,7 +18,7 @@ class StudentData {
     Student(
         name: 'Zheng Li',
         classes: 5,
-        date: '08/12/2022',
+        date: '08/01/2022',
         phone: '5107706008',
         email: 'lkf@lkf.com',
         uid: 'ZhengLi12345'),
