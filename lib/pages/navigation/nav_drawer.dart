@@ -32,14 +32,24 @@ class NavDrawer extends StatelessWidget {
               leading: Icon(Icons.qr_code_scanner),
               title: Text('Scan'),
               onTap: () {
-                print('pressed the nav drawer');
+                print('pressed the Scanner Option');
+                Navigator.pushReplacementNamed(context, '/');
               },
             ),
             ListTile(
               leading: Icon(Icons.account_box),
               title: Text('Students'),
               onTap: () {
-                print('pressed the nav drawer');
+                print('pressed the Students Option');
+                Navigator.pushReplacementNamed(context, '/students');
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.error),
+              title: Text('Outstanding'),
+              onTap: () {
+                print('pressed the Outstanding Option');
+                Navigator.pushReplacementNamed(context, '/');
               },
             ),
             Center(

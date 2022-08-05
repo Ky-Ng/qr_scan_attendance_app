@@ -6,7 +6,7 @@ import 'package:legendkungfu/pages/student_info.dart';
 
 void main() {
   runApp(MaterialApp(
-    initialRoute: '/scannedIn',
+    initialRoute: '/',
     routes: {
       '/': (context) => Home(),
       '/students': (context) => StudentInfo(),
