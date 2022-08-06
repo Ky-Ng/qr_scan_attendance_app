@@ -47,11 +47,25 @@ class StudentData {
 class Student {
   String name, date, phone, email, uid;
   int classes;
+  late DateTime dateTime;
+  late bool isOutStanding;
   Student(
       {required this.name,
       required this.classes,
       required this.date,
       required this.phone,
       required this.email,
-      required this.uid});
+      required this.uid}) {
+    dateTime = DateTime.parse(getFormatDate());
+    print(dateTime);
+    this.isOutStanding = (classes <= 0) || (dateTime.isBefore(DateTime.now()));
+  }
+
+  String getFormatDate() {
+    String year = date.substring(6);
+    print('year + $year');
+    String month = date.substring(0, 2);
+    String day = date.substring(3, 5);
+    return year + '-' + month + '-' + day;
+  }
 }

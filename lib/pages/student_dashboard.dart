@@ -28,6 +28,7 @@ class _StudentInfoState extends State<StudentInfo> {
       body: ListView(
         children: StudentData.studentList
             .map((studentData) => Card(
+                  color: studentData.isOutStanding ? Colors.red : Colors.white,
                   child: ListTile(
                     // leading: FlutterLogo(size: 72.0),
                     title: Text('${studentData.name}'),
