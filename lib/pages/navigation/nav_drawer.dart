@@ -49,7 +49,7 @@ class NavDrawer extends StatelessWidget {
               title: Text('Outstanding'),
               onTap: () {
                 print('pressed the Outstanding Option');
-                Navigator.pushReplacementNamed(context, '/');
+                Navigator.pushReplacementNamed(context, '/outstanding');
               },
             ),
             Center(
