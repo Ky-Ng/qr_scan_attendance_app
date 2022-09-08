@@ -6,15 +6,3 @@ Attendance and check in management app for small businesses using Flutter. This 
 - Checking in students to classes by scanning unique QR codes
 - Dashboard for viewing and editing student's registered classes, session dates, and contact information
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
